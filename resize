@@ -1,0 +1,33 @@
+#!/bin/bash
+shopt -s nocaseglob
+
+SOURCE=$1
+DEST=$2
+PERCENT=$3
+APPEND=$4
+
+echo $2
+
+# Clear down destination directory
+rm -rf $DEST; 
+mkdir $DEST
+
+# Convert all jpg files in subdirectories
+
+for j in "$SOURCE"/*.jp*g
+do 
+	ofn=$(echo $(basename "$j") | cut -d "." -f 1)
+	date=$(identify -verbose "$j" | grep "exif:DateTimeOriginal" | cut -d " " -f 6,7 --output-delimiter="")
+	# date=$(echo "$date" | tr : -)
+	date="${date//:}"
+	echo $date $ofn
+	if [ "$date" != "$olddate" ]
+	then
+		count=0
+	fi
+	fn=$DEST/$path/IMG-$date$count-$ofn_$APPEND.jpg
+	# echo $count $f $fn
+	convert "$j" -resize $PERCENT "$fn"
+	count=$(($count+1))
+	olddate=$date
+done
