@@ -11,6 +11,17 @@ To Do:
 - [ ] Fix empty folder issue
 - [x] Append text to resized image (e.g. *_small_.jpg)
 - [ ] Recursively search folders.
+- [ ] Error handling
+- [ ] Maybe put an absolute sizing option, rather than a percent???
+
+Requirements
+------------
+
+Should run on a linux system with ImageMagick installed.
+
+'convert' is a command line tool from the ImageMagick. To install
+
+    sudo apt-get install imagemagick
 
 Usage
 -----
@@ -30,14 +41,10 @@ Then it will search through any subfolders and repeat. The folder names will be 
 Notes
 -----
 
-### ImageMagik
+### ImageMagick
 
-http://forums.fedoraforum.org/showthread.php?t=242084
-http://ask.xmodulo.com/install-imagemagick-linux.html
-
-'convert' is a command line tool from the ImageMagick. To install
-
-    sudo apt-get install imagemagick
+* http://forums.fedoraforum.org/showthread.php?t=242084
+* http://ask.xmodulo.com/install-imagemagick-linux.html
 
 The basic command to reduce an image size by 50% is:
 
@@ -55,7 +62,7 @@ And to recursivelly update all images in multiple subfolders:
 
 ### Bash Scripts in Linux
 
-https://www.linux.com/learn/writing-simple-bash-script
+* https://www.linux.com/learn/writing-simple-bash-script
 
 The first part of the script is called the shebang, which includes the path to the shell the script uses.
 
